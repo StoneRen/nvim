@@ -1,5 +1,6 @@
 local global = vim.g
 local o = vim.o
+local cmd = vim.cmd
 
 
 -- Map <leader> = the space key
@@ -13,6 +14,9 @@ global.maplocalleader = " "
 o.encoding = "UTF-8"
 o.number = true
 -- o.relativenumber = true
+
+o.swapfile = false
+o.backup = false
 
 o.ignorecase = true
 o.smartcase = true
@@ -30,15 +34,22 @@ o.autoindent = true
 
 -- 是否将tab转换为空格
 o.expandtab = true
-o.shiftwidth = 2
-o.tabstop = 2
-
+-- Tab set to two spaces
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.expandtab = true
 
 o.ruler = true
 o.mouse = "a"
 
+-- When opening a window put it right or below the current one
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 o.wildmenu = true
 o.showcmd = true
 
--- o.termguicolors = true
+-- colorscheme
+o.termguicolors = true
+cmd.colorscheme('tokyonight-storm')

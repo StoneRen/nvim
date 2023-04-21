@@ -1,2 +1,3 @@
-require("settings")
-require("maps")
+require("config.settings")
+require("config.maps")
+require("config.plugins")

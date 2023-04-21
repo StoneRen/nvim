@@ -23,9 +23,27 @@ silent: 布尔值，确定绑定键是否显示消息
 expr: 通过vimscript或lua计算 {rhs} 的值
 --]]
 
+--]]
+local function map(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  -- do not create the keymap if a lazy keys handler exists
+  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
+end
+--]]
+
+local map=vim.keymap.set
+
 vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
 
 vim.keymap.set({'n', 'x'}, 'cp', '"+y')
 vim.keymap.set({'n', 'x'}, 'cv', '"+p')
 vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 
+-- better up/down
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
