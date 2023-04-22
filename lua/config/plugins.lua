@@ -12,13 +12,12 @@ return require("packer").startup(function(use)
   -- Packer
 	use("wbthomason/packer.nvim")
 
-  -- color scheme
-  use("folke/tokyonight.nvim")
 
   -- lualine
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
+
 
 end)

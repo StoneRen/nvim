@@ -51,5 +51,5 @@ o.wildmenu = true
 o.showcmd = true
 
 -- colorscheme
-o.termguicolors = true
-cmd.colorscheme('tokyonight-storm')
+-- o.termguicolors = true
+-- cmd.colorscheme('tokyonight-storm')
