@@ -2,12 +2,11 @@ local global = vim.g
 local o = vim.o
 local cmd = vim.cmd 
 
-
 -- Map <leader> = the space key
+
 
 global.mapleader = " "
 global.maplocalleader = " "
-
 
 -- from https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/
 -- Editor Options
