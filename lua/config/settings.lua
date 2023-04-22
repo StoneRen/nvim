@@ -1,6 +1,6 @@
 local global = vim.g
 local o = vim.o
-local cmd = vim.cmd
+local cmd = vim.cmd 
 
 
 -- Map <leader> = the space key
@@ -53,3 +53,4 @@ o.showcmd = true
 -- colorscheme
 -- o.termguicolors = true
 -- cmd.colorscheme('tokyonight-storm')
+
