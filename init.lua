@@ -10,3 +10,5 @@ require("stoneren.core.keymaps")
 require("stoneren.core.colorscheme")
 
 require("stoneren.plugins.comment")
+require("stoneren.plugins.nvim-tree")
+require("stoneren.plugins.lualine")

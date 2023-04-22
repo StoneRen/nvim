@@ -3,6 +3,12 @@ local opt = vim.opt
 local cmd = vim.cmd
 
 
+-- Editor Options
+opt.encoding = "UTF-8"
+opt.swapfile = false
+opt.backup = false
+opt.autochdir = true
+
 -- line numbers
 opt.number = true
 opt.relativenumber = false
