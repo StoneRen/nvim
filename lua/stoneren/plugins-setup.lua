@@ -1,3 +1,13 @@
+require("stoneren.plugins.comment")
+require("stoneren.plugins.nvim-tree")
+require("stoneren.plugins.lualine")
+require("stoneren.plugins.telescope")
+require("stoneren.plugins.nvim-cmp")
+require("stoneren.plugins.lsp.mason")
+require("stoneren.plugins.lsp.lspsaga")
+require("stoneren.plugins.lsp.lspconfig")
+require("stoneren.plugins.lsp.null-ls")
+
 -- auto install packer if not installed
 local ensure_packer = function()
     local fn = vim.fn
