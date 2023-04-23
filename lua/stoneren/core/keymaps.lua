@@ -33,11 +33,21 @@ expr: 通过vimscript或lua计算 {rhs} 的值
 -- basic keymaps
 bind("n", "<leader>w", ":w<CR>") -- save
 bind("n", "<leader>q", ":q<CR>") -- quit
-bind("n", "<leader>Q", ":qa!<CR>") -- quit all without saving
-bind("n","<leader>te",":Texplore<CR>") -- new tab
-bind("n", "<leader>h", ":nohl<CR>") -- clear search highlight
+bind("n", "<leader>qq", ":qa!<CR>") -- quit all without saving
+bind("n", "<leader>e", ":Explore<CR>") -- open file explorer
+bind("n","<leader>te",":Texplore<CR>")
+-- select all
+vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 
+-- better up/down
+bind("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+bind("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
+-- Undo break points
+local break_points = {'<Space>', '-', '_', ':', '.', '/'}
+for _, char in ipairs(break_points) do
+  bind('i', char, char .. '<C-g>u')
+end
 
 -- window management
 bind("n", "<leader>sv", "<C-w>v") -- split window vertically
@@ -49,3 +59,11 @@ bind("n", "<leader>sx", ":close<CR>") -- close current split window
 -- bind("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 bind("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 bind("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
+
+
+----------------------
+-- Plugin Keybinds
+----------------------
+
+-- toggle split window maximization
+bind("n", "<leader>sm", ":MaximizerToggle<CR>") 
