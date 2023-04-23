@@ -1,3 +1,2 @@
-require("config.settings")
-require("config.maps")
-require("config.plugins")
+require("stoneren.core.options")
+require("stoneren.core.keymaps")
