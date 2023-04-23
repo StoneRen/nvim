@@ -48,6 +48,22 @@ return require("packer").startup(function(use)
         "nvim-telescope/telescope-fzf-native.nvim",
         run = "make"
     })
+    
+
+    -- autocompletion
+    use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+    use("hrsh7th/cmp-buffer") -- source for text in buffer
+    use("hrsh7th/cmp-path") -- source for file system paths
+    -- snippets
+    use("L3MON4D3/LuaSnip") -- snippet engine
+    use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+    use("rafamadriz/friendly-snippets") -- useful snippets
+    use({
+        "hrsh7th/nvim-cmp",
+        config = function()
+            require("stoneren.config.amp-config")
+        end   
+    }) -- completion plugin
 
     if packer_bootstrap then
         require("packer").sync()
