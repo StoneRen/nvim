@@ -14,11 +14,12 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
 vim.cmd([[ 
-    augroup packer_user_config
-      autocmd!
-      autocmd BufWritePost plugins.lua source <afile> | PackerSync
-    augroup end
-  ]])
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
+
 return require("packer").startup(function(use)
     -- Packer
     use("wbthomason/packer.nvim")
@@ -27,20 +28,26 @@ return require("packer").startup(function(use)
     use({"szw/vim-maximizer"})
 
     use {
-        'glepnir/dashboard-nvim',
-        event = 'VimEnter',
+        'echasnovski/mini.nvim',
+        branch = 'stable',
         config = function()
-            require('dashboard').setup()
-        end,
-        requires = {'nvim-tree/nvim-web-devicons'}
+            require('stoneren.config.mini-config')
+        end
     }
-
 
     use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.x',
+        config = function()
+            require('stoneren.config.telescope-config')
+        end,
+        requires = {{'nvim-lua/plenary.nvim'}}
     }
 
+    use({
+        "nvim-telescope/telescope-fzf-native.nvim",
+        run = "make"
+    })
 
     if packer_bootstrap then
         require("packer").sync()
