@@ -26,26 +26,19 @@ return require("packer").startup(function(use)
     -- maximizes and restores current window
     use({"szw/vim-maximizer"})
 
-    -- use {
-    --     'nvim-lualine/lualine.nvim',
-    --     config = function()
-    --       require('lualine').setup {}
-    --     end,
-    --     requires = {
-    --         'nvim-tree/nvim-web-devicons',
-    --         opt = true
-    --     }
-    -- }
+    use {
+        'glepnir/dashboard-nvim',
+        event = 'VimEnter',
+        config = function()
+            require('dashboard').setup()
+        end,
+        requires = {'nvim-tree/nvim-web-devicons'}
+    }
+
 
     use {
-      'glepnir/dashboard-nvim',
-      event = 'VimEnter',
-      config = function()
-        require('dashboard').setup {
-          -- config
-        }
-      end,
-      requires = {'nvim-tree/nvim-web-devicons'}
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
 
