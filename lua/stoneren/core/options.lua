@@ -33,7 +33,9 @@ opt.smartcase = true
 opt.cursorline = true
 
 -- appearance
-opt.termguicolors = true
+if os.getenv('COLORTERM') == 'truecolor' or os.getenv('COLORTERM') == '24bit' then
+  opt.termguicolors = true
+end
 opt.background = "dark"
 opt.signcolumn = "yes"
 

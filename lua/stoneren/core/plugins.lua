@@ -49,9 +49,17 @@ return require("packer").startup(function(use)
         run = "make"
     })
     
+    -- UI
+    use({
+        "rebelot/kanagawa.nvim",
+        config = function()
+            require("stoneren.config.ui-config")
+        end
+    })
+    
 
     -- autocompletion
-    use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+    -- use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
     use("hrsh7th/cmp-buffer") -- source for text in buffer
     use("hrsh7th/cmp-path") -- source for file system paths
     -- snippets
@@ -63,7 +71,8 @@ return require("packer").startup(function(use)
         config = function()
             require("stoneren.config.amp-config")
         end   
-    }) -- completion plugin
+    }) 
+    -- completion plugin
 
     if packer_bootstrap then
         require("packer").sync()
