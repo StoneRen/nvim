@@ -34,8 +34,8 @@ expr: 通过vimscript或lua计算 {rhs} 的值
 bind("n", "<leader>w", ":w<CR>") -- save
 bind("n", "<leader>q", ":q<CR>") -- quit
 bind("n", "<leader>qq", ":qa!<CR>") -- quit all without saving
-bind("n", "<leader>e", ":Explore<CR>") -- open file explorer
-bind("n","<leader>te",":Texplore<CR>")
+-- bind("n", "<leader>e", ":Explore<CR>") -- open file explorer
+-- bind("n","<leader>te",":Texplore<CR>")
 -- select all
 vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 

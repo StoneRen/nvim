@@ -5,10 +5,12 @@ opt.encoding = "UTF-8"
 opt.swapfile = false
 opt.backup = false
 opt.autochdir = true
+-- 总是显示光标位置
+opt.ruler = true
 
 -- line numbers
 opt.number = true
-opt.relativenumber = false
+opt.relativenumber = true
 
 -- tabs & indentation
 -- 是否将tab转换为空格

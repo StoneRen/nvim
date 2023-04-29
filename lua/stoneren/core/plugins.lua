@@ -35,6 +35,7 @@ return require("packer").startup(function(use)
         end
     }
 
+    -- telescope
     use {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.x',
@@ -48,7 +49,12 @@ return require("packer").startup(function(use)
         "nvim-telescope/telescope-fzf-native.nvim",
         run = "make"
     })
-    
+    use {
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
+    -- end 
+
     -- UI
     use({
         "rebelot/kanagawa.nvim",
@@ -56,7 +62,17 @@ return require("packer").startup(function(use)
             require("stoneren.config.ui-config")
         end
     })
-    
+    -- End UI
+
+    -- terminal
+    use {
+        "akinsho/toggleterm.nvim",
+        tag = '*',
+        config = function()
+            require("stoneren.config.term-config")
+        end
+    }
+    -- End terminal
 
     -- autocompletion
     -- use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
@@ -70,8 +86,8 @@ return require("packer").startup(function(use)
         "hrsh7th/nvim-cmp",
         config = function()
             require("stoneren.config.amp-config")
-        end   
-    }) 
+        end
+    })
     -- completion plugin
 
     if packer_bootstrap then
