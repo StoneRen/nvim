@@ -2,7 +2,6 @@
  THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
  `lvim` is the global options object
 ]]
-
 -- vim options
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
@@ -36,8 +35,11 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+
+-- 禁用nvimtree
+lvim.builtin.nvimtree.active = false
+-- lvim.builtin.nvimtree.setup.view.side = "left"
+-- lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = true
@@ -116,3 +118,24 @@ lvim.builtin.treesitter.auto_install = true
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+
+
+-- StoneRen Config
+local bind = vim.keymap.set
+
+lvim.plugins = {
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    config = function()
+      local telescope = require("telescope")
+      telescope.load_extension "file_browser"
+      bind('n', '<leader>e', ":Telescope file_browser path=%:p:h select_buffer=true<CR>", {})
+      bind('n', '<leader>te', ":tabnew | Telescope file_browser path=%:p:h select_buffer=true<CR>", {})
+    end
+  }
+}
+
+
+
+-- End
