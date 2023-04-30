@@ -133,9 +133,16 @@ lvim.plugins = {
       bind('n', '<leader>e', ":Telescope file_browser path=%:p:h select_buffer=true<CR>", {})
       bind('n', '<leader>te', ":tabnew | Telescope file_browser path=%:p:h select_buffer=true<CR>", {})
     end
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      -- vim.cmd.colorscheme('kanagawa')
+      require('kanagawa').setup {
+
+      }
+      lvim.colorscheme = "kanagawa"
+    end
   }
 }
-
-
-
 -- End
