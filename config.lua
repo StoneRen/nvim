@@ -143,6 +143,13 @@ lvim.plugins = {
       }
       lvim.colorscheme = "kanagawa"
     end
-  }
+  },
 }
+
+-- window management
+bind("n", "<leader>sv", "<C-w>v")     -- split window vertically
+bind("n", "<leader>sh", "<C-w>s")     -- split window horizontally
+bind("n", "<leader>se", "<C-w>=")     -- make split windows equal width & height
+bind("n", "<leader>sx", ":close<CR>") -- close current split window
+
 -- End
